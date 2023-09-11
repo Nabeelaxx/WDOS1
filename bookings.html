@@ -5,16 +5,13 @@
         <meta name="viewport" content="with-device-width, intial-scale=1.0"> 
         <title>Hotel De Tranquille</title>
         <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+        
     </head>
     <body>
 
 <!--header-->
 
-        <section class="sub-header">
+        <section class="sub-header-4">
             <nav>
                     <a href="homepg.html"><img src="images/logo8.png"></a>
                     <div class="nav-link" id="navLinks"> 
@@ -24,14 +21,54 @@
                         <li><a href="homepg.html">HOME</a></li>
                         <li><a href="branches.html">BRANCHES</a></li>
                         <li><a href="adventures.html">ADVENTURES</a></li>
-                        <li><a href="restaurants.html">RESTAURANTS</a></li>
+                        <li><a href="restaurants.html">RESTAURANTS</a>
+                            <ul class="dropdown">
+                                <li><a href="event1.html">WEDDINGS</a></li>
+                                <li><a href="event2.html">LIVE GIGS</a></li>
+                            </ul>
+                        </li>
                         <li><a href="bookings.html">BOOKINGS</a></li>
                     </ul>
                 </div>
                 
                 
             </nav>
-            <h1>Branches</h1>
+            <h1>Bookings</h1>
+            <p>Enjoy your stay</p>
+
+            <div class="booking-container">
+                <form>
+                    <div class="form-group">
+                        <div class="input_group">
+                            <input type="text">
+                            <label>location</label>
+                        </div>
+                        <p>where are you going?</p>
+                    </div>
+                    <div class="form-group">
+                        <div class="input_group">
+                            <input type="text">
+                            <label>Check in</label>
+                        </div>
+                        <p>Add date</p>
+                    </div>
+                    <div class="form-group">
+                        <div class="input_group">
+                            <input type="text">
+                            <label>Check out</label>
+                        </div>
+                        <p>Add date</p>
+                    </div>
+                    <div class="form-group">
+                        <div class="input_group">
+                            <input type="text">
+                            <label>Guests</label>
+                        </div>
+                        <p>Add guests</p>
+                    </div>
+                </form>
+                <button class="btn"></button>
+            </div>
 
         </section>
 
@@ -58,12 +95,7 @@
                 <p>Investors</p>
             </div>
         </div>
-        <div class="icons">
-            <i class="fa fa-facebook"></i>
-            <i class="fa fa-twitter"></i>
-            <i class="fa fa-instagram"></i>
-            <i class="fa fa-linkedin"></i>
-        </div>
+        
 </section>
 
 
