@@ -133,7 +133,7 @@ ul li:hover ul.dropdown{
 }
 .About p{
     color: #4b170bcb;
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 600;
     line-height: 22px;
     padding: 10px;
@@ -157,7 +157,7 @@ h3{
     text-align: center;
     font-weight: 600;
     margin: 10px 0;
-    font-size: 18px;
+    font-size: 22px;
     color: #fff;
 }
 .About-col:hover{
@@ -176,7 +176,7 @@ h3{
     color: #320707;
 }
 .offers p{
-    font-size: 13px;
+    font-size: 16px;
     line-height: 22px;
     padding: 10px;
 }
@@ -230,7 +230,7 @@ h3{
     color: #320707;
 }
 .facilities p{
-    font-size: 13px;
+    font-size: 16px;
     line-height: 22px;
     padding: 10px;
 }
@@ -327,7 +327,7 @@ h3{
 .sub-header{
     height: 80vh;
     width: 100%;
-    background-image: linear-gradient(rgba(176, 151, 151, 0.7), rgba(176, 151, 151, 0.7)), url(images/home1.jpg);
+    background-image: linear-gradient(rgba(176, 151, 151, 0.7), rgba(176, 151, 151, 0.7)), url(images/hotel32.jpg);
     background-position: center;
     background-size: cover;
     text-align: center;
@@ -426,6 +426,7 @@ h3{
 .adventure-text p{
     padding: 0 20px;
     text-align: initial;
+    font-size: 16px;
 }
 #exploremore{
     width: 100%;
@@ -512,7 +513,7 @@ hr{
     transition: transform .5s;
 }
 .infrastructures-col p{
-    font-size: 12px;
+    font-size: 14px;
 }
 .user{
     display: flex;
@@ -541,7 +542,7 @@ infrastructures-col:hover{
 .sub-header-1{
     width: 100%;
     height: 80vh;
-    background-image: linear-gradient(rgba(176, 151, 151, 0.7), rgba(176, 151, 151, 0.7)), url(images/hotel4.jpg);
+    background-image: linear-gradient(rgba(176, 151, 151, 0.7), rgba(176, 151, 151, 0.7)), url(images/hotel31.png);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -578,6 +579,7 @@ infrastructures-col:hover{
 }
 .branches-col p{
     padding: 15px 25px;
+    font-size: 16px;
 }
 .branch-tab{
     width: 100%;
@@ -629,7 +631,7 @@ iframe{
 .sub-header-2{
     width: 100%;
     height: 80vh;
-    background-image: linear-gradient(rgba(176, 151, 151, 0.7), rgba(176, 151, 151, 0.7)), url(images/hotel4.jpg);
+    background-image: linear-gradient(rgba(176, 151, 151, 0.7), rgba(176, 151, 151, 0.7)), url(images/hotel33.jpg);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -686,9 +688,11 @@ iframe{
 }
 .restaurants-col h1{
     padding-top: 0;
+    font-size: 20px;
 }
 .restaurants-col p{
     padding: 15px 25px;
+    font-size: 16px;
 }
 .cuisines{
     width: 80%;
@@ -701,7 +705,7 @@ iframe{
     color: #320707;
 }
 .cuisines p{
-    font-size: 13px;
+    font-size: 16px;
     line-height: 22px;
     padding: 10px;
 }
@@ -752,7 +756,7 @@ iframe{
 .sub-header-4{
     width: 100%;
     height: 80vh;
-    background-image: linear-gradient(rgba(176, 151, 151, 0.7), rgba(176, 151, 151, 0.7)), url(images/hotel4.jpg);
+    background-image: linear-gradient(rgba(176, 151, 151, 0.7), rgba(176, 151, 151, 0.7)), url(images/hotel34.jpg);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -771,43 +775,91 @@ iframe{
     color: #320707;
     font-weight: 600;
 }
-.booking-container{
-    position: absolute;
-    bottom: -5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100%-6rem);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 3rem 2rem;
-    background-color: #fff;
-    -webkit-backdrop-filter: blur(1opx);
-    backdrop-filter: blur(10px);
-    box-shadow: 5px 5px 3opx rgba(0,0,0,0.1);
-}
-.booking-container form{
-    width: 100%;
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 1rem;
-}
-.booking-container .input-group{
-    width: 100%;
+.main-bg{
+    background-image: url(images/booking.webp);
+    background-size: cover;
+    background-position: center;
     position: relative;
+    
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
-.booking-container label{
-    position: absolute;
-    top: 5%;
-    left: 0;
-    transform: translateY(-50%);
-    font-size: 1.2rem;
-    color: var(--text-dark);
-    pointer-events: none;
-    transition: 0.3s;
-    font-weight: 500;
+.form{
+   background-color: #fff;
+    width: 700px;
+    
 }
+.form-text{
+    text-align: center;
+    margin: 40px 0;
+    color: #320707;
+}
+.form-text h1 span img{
+    margin: 0 10px;
+
+}
+.form-text h1{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.form-text p{
+    font-size: 20px;
+}
+
+.main-form div{
+    margin: 10px 20px;
+    display: inline-block;
+    width: 300px;
+}
+.main-form div input{
+    width: 100%;
+    background: none;
+    border: 1px solid #471515;
+    font-size: 13px;
+    color: #401313;
+    outline: none;
+    padding: 3px 0 3px 10px;
+    margin: 10px;
+}
+.main-form div select{
+    width: 100%;
+    background: none;
+    border: 1px solid #471515;
+    font-size: 13px;
+    color: #5c2020;
+    padding: 3px 0 3px 10px;
+    margin: 10px;
+}
+.main-form div span{
+    width: 100%;
+    color: #5c2020;
+    font-size: 17px;
+}
+#submit{
+    text-align: center;
+    width: 100%;
+    font-weight: 600;
+    font-size: 19px;
+}
+#submit input{
+    width: 200px;
+    background-color: #9f8181;
+    transition: all 0.3s;
+}
+#submit input:hover{
+    width: 200px;
+    background-color: #ad3e3e;
+    color: #320707;
+}
+#submit input:active{
+    width: 200px;
+    background-color: #6e2a2a;
+    color: #320707;
+}
+
 
 
 @media (max-device-width: 700px) {
@@ -936,5 +988,7 @@ iframe{
     .footer-right p{
         font-size: 12px;
     }
-    
+    .main-form{
+        text-align: center;
+    }
 }

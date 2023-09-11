@@ -126,6 +126,28 @@ ul li ul.dropdown{
 ul li:hover ul.dropdown{
     display: block;
 }
+.hero-btn{
+    width: 200px;
+    padding: 8px 6px;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 1px solid #8d2511d1;
+    background: #5a1717d4;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 13px;
+}
+.hero-btn:hover{
+    border: 1px solid #320707;
+    background: #320707;
+    transition: 1s;
+}
 .event1{
     min-height: 100vh;
 }
@@ -235,101 +257,4 @@ body{
     color: #614949;
     padding: 7px 30px;
     margin: 15px 0 0;
-}
-.package{
-    padding: 80px 0 0;
-
-}
-.package .packs{
-    flex: 0 50%;
-    max-width: 50%;
-    padding: 0 60px;
-    text-align: center;
-    width: 100%;
-    padding-top: 12px;
-    align-items: center;
-    position: relative;
-}
-.package .packs:nth-child(2)::before{
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 1px;
-    height:100%;
-    background-color: #441616;
-
-}
-.package .packs img{
-    max-width: 280px;
-    width: 100%;
-    border-radius: 80%;
-    border: 10px solid transparent;
-    border-color: #a26262;
-}
-.package .packs h3{
-    font-size: 25px;
-    margin: 15px 0;
-    font-weight: normal;
-    letter-spacing: 2px;
-}
-.package .packs p{
-    font-size: 14px;
-}
-.gallery{
-    padding: 80px 0 80px;
-}
-.gallery .gallery-content{
-    flex: 0 0 100%;
-    max-width: 100%;
-    position: relative;
-}
-
-.gallery .gallery-item{
-    display: flex;
-    flex-wrap: wrap;
-    flex: 0 0 100%;
-    max-width: 100%;
-    margin-bottom: 50px;
-}
-.gallery .gallery-item:last-child{
-    margin-bottom: 0;
-}
-.gallery .gallery-item:nth-child(even){
-    flex-direction: row-reverse;
-}
-.gallery .gallery-item:nth-child(odd) .gallery-text{
-    padding: 0 60px 0 15px;
-    text-align: right;
-}
-.gallery .gallery-item:nth-child(odd) .gallery-img{
-    padding: 0 15px 0 60px;
-}
-.gallery .gallery-item:nth-child(even) .gallery-text{
-    padding: 0 60px 0 15px;
-}
-.gallery .gallery-item:nth-child(even) .gallery-img{
-    padding: 0 15px 0 60px;
-}
-.gallery .gallery-text, .gallery .gallery-img{
-    flex: 0 0 50%;
-    max-width: 50%;
-}
-.gallery-text{
-    padding-top: 20px;
-    text-align: center;
-    padding-bottom: 12px;
-}
-.gallery .gallery-text h3{
-    font-size: 25px;
-    margin: 0 0 8px;
-    font-weight: 500;
-    color: #320707;
-
-}
-.gallery .gallery-text span.date{
-    font-size: 15px;
-    font-weight: 500;
-    color: #463030;
-    margin: 15px 0;
 }
