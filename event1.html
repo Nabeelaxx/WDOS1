@@ -4,36 +4,129 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="with-device-width, intial-scale=1.0"> 
         <title>Hotel De Tranquille</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+        <link rel="stylesheet" href="event1.css">
+        
     </head>
     <body>
 
 <!--header-->
 
-        <section class="sub-header">
-            <nav>
-                    <a href="homepg.html"><img src="images/logo8.png"></a>
-                    <div class="nav-link" id="navLinks"> 
-                        
-                            
-                    <ul>
-                        <li><a href="homepg.html">HOME</a></li>
-                        <li><a href="branches.html">BRANCHES</a></li>
-                        <li><a href="adventures.html">ADVENTURES</a></li>
-                        <li><a href="restaurants.html">RESTAURANTS</a></li>
-                        <li><a href="bookings.html">BOOKINGS</a></li>
-                    </ul>
+        <header class="header">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="logo">
+                        <a href="homepg.html"><img src="images/logo8.png"></a>
+                    </div>
+                    <div class="nav">
+                        <ul>
+                            <li><a href="homepg.html">HOME</a></li>
+                            <li><a href="branches.html">BRANCHES</a></li>
+                            <li><a href="adventures.html">ADVENTURES</a></li>
+                            <li><a href="restaurants.html">RESTAURANTS</a>
+                                <ul class="dropdown">
+                                    <li><a href="event1.html">WEDDINGS</a></li>
+                                    <li><a href="event2.html">LIVE GIGS</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="bookings.html">BOOKINGS</a></li>
+                        </ul>
+                    </div>
+                    </div>
                 </div>
-                
-                
-            </nav>
-            <h1>Branches</h1>
+        </header>
 
-        </section>
+<!--events-->
+<section class="event1">
+    <div class="slide" style="background-image: url(images/wedding2.webp);">
+     <div class="container">
+        <div class="row align-items-center">
+        <div class="event1-content">
+            <p>To New Beginings</p>
+            <h1>WEDDINGS</h1>
+            <span>Advance booking</span>
+            
+        </div>
+
+    </div>
+    </div>
+    </div>
+
+</section>  
+
+<!--packages-->
+<section class="package">
+    <div class="container">
+        <div class="row">
+            <div class="section-title">
+                <h2>Packages available</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="packs">
+            <img src="images/wedding5.jpeg" alt="Wedding Packages">
+            <h3>Standard Wedding Package</h3>
+            <p>Wake up each day to stunning views of the Indian Ocean or the calming hues of the Beira Lake and fuel up for the day ahead with a hearty breakfast at Central before embarking on a day of meetings, shopping or exploring. 
+                <br>Unwind with a soothing treatment at Chi, The Spa or sit down to a 3-tiered Afternoon High Tea at Sapphyr Lounge. Whether your appetite with a specially crafted cocktail before heading for an inspired evening at Shangri-La's signature dining venue</p>
+            </div>
+            <div class="packs">
+                <img src="images/wedding6.jpg" alt="Wedding Packages">
+                <h3>Premium Wedding Package</h3>
+                <p>Wake up each day to stunning views of the Indian Ocean or the calming hues of the Beira Lake and fuel up for the day ahead with a hearty breakfast at Central before embarking on a day of meetings, shopping or exploring. 
+                    <br>Unwind with a soothing treatment at Chi, The Spa or sit down to a 3-tiered Afternoon High Tea at Sapphyr Lounge. Whether your appetite with a specially crafted cocktail before heading for an inspired evening at Shangri-La's signature dining venue</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--gallery-->
+<section class="gallery">
+    <div class="container">
+        <div class="row">
+            <div class="section-title">
+                <h2>Wedding diaries</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="gallery-content">
+                <div class="row">
+                    <div class="gallery-item">
+                        <div class="gallery-text">
+                            <h3>Reception Photographs</h3>
+                            <span class="date">26.JAN.23</span>
+                        </div>
+                        <div class="gallery-img">
+                            <img src="images/wedding7.jpeg">
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <div class="gallery-text">
+                            <h3>Ceremony Photographs</h3>
+                            <span class="date">26.FEB.23</span>
+                        </div>
+                        <div class="gallery-img">
+                            <img src="images/wedding9.jpg">
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <div class="gallery-text">
+                            <h3>Engagement Photographs</h3>
+                            <span class="date">26.APR.23</span>
+                        </div>
+                        <div class="gallery-img">
+                            <img src="images/wedding11.jpg">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
 
 <!--footer-->
 
@@ -58,12 +151,7 @@
                 <p>Investors</p>
             </div>
         </div>
-        <div class="icons">
-            <i class="fa fa-facebook"></i>
-            <i class="fa fa-twitter"></i>
-            <i class="fa fa-instagram"></i>
-            <i class="fa fa-linkedin"></i>
-        </div>
+       
 </section>
 
 
