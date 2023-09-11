@@ -806,7 +806,7 @@ iframe{
     margin-bottom: 20px;
 }
 .form-text p{
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .main-form div{
@@ -828,7 +828,7 @@ iframe{
     width: 100%;
     background: none;
     border: 1px solid #471515;
-    font-size: 13px;
+    font-size: 22px;
     color: #5c2020;
     padding: 3px 0 3px 10px;
     margin: 10px;
@@ -836,13 +836,13 @@ iframe{
 .main-form div span{
     width: 100%;
     color: #5c2020;
-    font-size: 17px;
+    font-size: 22px;
 }
 #submit{
     text-align: center;
     width: 100%;
     font-weight: 600;
-    font-size: 19px;
+    font-size: 25px;
 }
 #submit input{
     width: 200px;
