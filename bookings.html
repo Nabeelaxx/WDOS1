@@ -5,116 +5,265 @@
         <meta name="viewport" content="with-device-width, intial-scale=1.0"> 
         <title>Hotel De Tranquille</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <script src="main.js" defer></script>
         
     </head>
     <body>
 
 <!--header-->
 
-        <section class="sub-header-4">
-            <nav>
-                    <a href="homepg.html"><img src="images/logo8.png"></a>
-                    <div class="nav-link" id="navLinks"> 
+    <section class="sub-header-4">
+        <nav>
+                <a href="homepg.html"><img src="images/logo8.png"></a>
+                <div class="nav-link" id="navLinks"> 
+                    
                         
-                            
-                    <ul>
-                        <li><a href="index.html">HOME</a></li>
-                        <li><a href="branches.html">BRANCHES</a></li>
-                        <li><a href="adventures.html">ADVENTURES</a></li>
-                        <li><a href="restaurants.html">RESTAURANTS</a>
-                            <ul class="dropdown">
-                                <li><a href="event1.html">WEDDINGS</a></li>
-                                <li><a href="event2.html">LIVE GIGS</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="bookings.html">BOOKINGS</a></li>
-                    </ul>
-                </div>
-                
-                
-            </nav>
-            <h1>Bookings</h1>
-            <p>Opulent settings, Memorable stays</p>
-
-        </section>
-        <section class="main-bg">
-            <div class="form">
-                <div class="form-text">
-                    <h1>Start Booking Now</h1>
-                    <p>Enter your dates to see the latest prices and deals</p>
-                </div>
-                <div class="main-form">
-                    <form >
-                        <div>
-                            <span>Enter your name</span>
-                            <input type="text" name="name" id="name" placeholder="name" required>
-                        </div>
-<br>
-<br>
-                        <div>
-                            <span>Enter your email address</span>
-                            <input type="email" name="name" id="name" placeholder="email" required>
-                        </div>
-                        <br>
-                        <br>
-                        <div>
-                            <span>Preferred Adventure</span>
-                            <select name="adventure" id="adventure">
-                                <option value="">Adventures</option>
-                                <option value="Hiking">Hiking</option>
-                                <option value="Paragliding">Paragliding</option>
-                                <option value="Bunjee Jumping">Bunjee Jumping</option>
-                                <option value="Zip Lining">Zip Lining</option>
-                                
-                            </select>
-                        </div>
-                        <br>
-                        <br>
-                        <div>
-                            <span>Number of Guests</span>
-                            <input type="number" name="number" id="number" placeholder="guests" required>
-                        </div>
-                        <br>
-                        <br>
-                        <div>
-                            <span>Time of Arrival</span>
-                            <input type="text" name="time" id="time" placeholder="time" required>
-                        </div>
-                        <br>
-                        <br>
-                        <div>
-                            <span>Check In Date</span>
-                            <input type="date" name="date" id="date" placeholder="date" required>
-                        </div>
-                        <br>
-                        <br>
-                        <div>
-                            <span>Check Out Date</span>
-                            <input type="date" name="date" id="date" placeholder="date" required>
-                        </div>
-                        <br>
-                        <br>
-                        <div>
-                            <span>Number of Rooms</span>
-                            <input type="number" name="number" id="number" placeholder="rooms" required>
-                        </div>
-                        <br>
-                        <br>
-                        <div id="submit">
-                            <input type="submit" value="SUBMIT" id="submit">
-                        </div>
-                        <br>
-                        <br>
-                    </form>
-                </div>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="branches.html">BRANCHES</a></li>
+                    <li><a href="adventures.html">ADVENTURES</a></li>
+                    <li><a href="restaurants.html">RESTAURANTS</a>
+                        <ul class="dropdown">
+                            <li><a href="event1.html">WEDDINGS</a></li>
+                            <li><a href="event2.html">LIVE GIGS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="bookings.html">BOOKINGS</a></li>
+                </ul>
             </div>
             
+            
+        </nav>
+        <h1>Bookings</h1>
+        <p>Opulent settings, Memorable stays</p>
+
+    </section>
+    <section class="main-bg"> 
+        <div class="main-form">
+            <form id="bookingForm">
+                <fieldset>
+                    <legend>Personal Details</legend>
+                    <div class="bookingRow">
+                        <div class="inputBox">
+                            <span>First Name</span>
+                            <input type="text" required id="fname" placeholder="Enter your First Name">
+                        </div>
+                        <div class="inputBox">
+                            <span>Last Name</span>
+                            <input type="text" required id="lname" placeholder="Enter your Last Name">
+                        </div>
+                        <div class="inputBox">
+                            <span>Email Address</span>
+                            <input type="text" required id="email" placeholder="Enter your Email Address">
+                        </div>
+                        <div class="inputBox">
+                            <span>Phone Number</span>
+                            <input type="number" required id="phone" placeholder="Enter your Phone Number">
+                        </div>
+                        <div class="inputBox">
+                            <span>Country</span>
+                            <input type="text" required id="country" placeholder="Enter your Country">
+                        </div>
+                    </div> 
+                </fieldset>
+
+                <fieldset>
+                    <legend>Booking Details</legend>
+                    <div class="bookingRow">
+                        <div class="inputBox">
+                            <span>Check In Date</span>
+                            <input type="date" required id="checkIn">
+                        </div>
+                        <div class="inputBox">
+                            <span>Check Out Date</span>
+                            <input type="date" required id="checkOut">
+                        </div>
+                        <div class="inputBox">
+                            <span>No. of Adults</span>
+                            <input type="number" required id="adults" placeholder="Enter number of Adults">
+                        </div>
+                        <div class="inputBox">
+                            <span>No. of Children</span>
+                            <input type="number" required id="children" placeholder="Enter number of Children">
+                        </div>
+                        <div class="inputBox">
+                            <span>No. of Single Rooms</span>
+                            <input type="number" required id="single" placeholder="Enter number of Single Rooms">
+                        </div>
+                        <div class="inputBox">
+                            <span>No. of Double Rooms</span>
+                            <input type="number" required id="double" placeholder="Enter number of Double Rooms">
+                        </div>
+                        <div class="inputBox">
+                            <span>No. of Triple Rooms</span>
+                            <input type="number" required id="triple" placeholder="Enter number of Triple Rooms">
+                        </div>
+                        <div class="inputBox">
+                            <span>Meals - Kids under 5 Years</span>
+                            <input type="number" required id="meals" placeholder="Enter number of Kids under 5 Years">
+                        </div>
+                        <div class="inputBox checkBox">
+                            <span>Extra Addons</span>
+                            <label>
+                                <input type="checkbox" id="wifi">
+                                WiFi
+                            </label>
+                            <label>
+                                <input type="checkbox" id="poolView">
+                                Pool View
+                            </label>
+                            <label>
+                                <input type="checkbox" id="gardenView">
+                                Garden View
+                            </label>
+                            <label>
+                                <input type="checkbox" id="extraBed">
+                                Extra Bed
+                            </label>
+                        </div>
+                        
+                        <div class="inputBox">
+                            <span>Loyalty Points</span>
+                            <p id="loyalty" class="loyalty"></p>
+                        </div>
+                        <div class="inputBox">
+                            <span>Promo Code</span>
+                            <input type="text" required id="promo" placeholder="Enter the Promo Code">
+                        </div>
+                        <a class="hero-btn" id="bookbtn">Book Now</a>
+                        <a class="hero-btn" id="checkLoyalty">Check Loyalty</a>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Adventure Booking</legend>
+                    <div class="bookingRow">
+                        <div class="inputBox">
+                            <span>No. of Local Adults</span>
+                            <input type="number" required id="localAdults" placeholder="Enter number of Local Adults">
+                        </div>
+                        <div class="inputBox">
+                            <span>No. of Local Children</span>
+                            <input type="number" required id="localChildren" placeholder="Enter number of Local Children">
+                        </div>
+                        <div class="inputBox">
+                            <span>No. of Foreign Adults</span>
+                            <input type="number" required id="foreignAdults" placeholder="Enter number of Foreign Adults">
+                        </div>
+                        <div class="inputBox">
+                            <span>No. of Foreign Kids</span>
+                            <input type="number" required id="foreignChildren" placeholder="Enter number of Foreign Children">
+                        </div>
+                        <div class="inputBox">
+                            <span>Adventure Type</span>
+                            <select id="advType">
+                                <option value="none">Select an Option</option>
+                                <option value="Diving" id="diving">Diving</option>
+                                <option value="Trail with Nature" id="nature">Trail with Nature</option>
+                                <option value="Bungee Jumping" id="bunjee">Bungee Jumping</option>
+                                <option value="Zip Lining" id="ziplining" >Zip Lining</option>
+                            </select>
+                        </div>
+                        <div class="inputBox checkBox">
+                            <span>Adventure Guide</span>
+                            <label>
+                                <input type="checkbox" id="adultguide">
+                                Adults
+                            </label>
+                            <label>
+                                <input type="checkbox" id="kidguide">
+                                Kids
+                            </label>
+                        </div>
+                        <a class="hero-btn" id="advbtn">Book Adventure</a>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </section>
+
+    <!-- <div class="output">
+                    <div class="output_align">
+                        
+                        <div class="guestOutput">
+                            <h1>Guest Details</h1>
+                            <p id="output"></p>
+                        </div>
+
+                        <div class="bookOutput">
+                            <h1>Booking Information</h1>
+                            <p id="bookingOutput"></p>
+                        </div>
+
+                        <div class="advOutput">     
+                            <h1>adventure Booking</h1>
+                            <p id="advbookingOutput"></p>
+                        </div>
+                    </div>
+            </div> -->
+
+
+            <!-- Current Ouptut  -->
+            <fieldset>
+                
+            <section class="bookingRow">
+                <span>Booking Rate</span><br>
+                <p id="bookoutput"><u>LKR</u> 0.00</p>
+                
+                <br>
+
+                <span>Adventure Rate</span><br>
+                <p id="advoutput"><u>LKR</u> 0.00</p>
+            </section>
+        
+
+        <section class="bookingRow">
+            <div>Overall Booking</div>
+                <table class="inputBox" id="bookdetails">
+                    <tbody id="booklist">
+                        <tr>
+                            <th>Name</th>
+                            <th>Check-In</th>
+                            <th>Check-Out</th>
+                            <th>Adults</th>
+                            <th>Children</th>                           
+                            <th>Single Room</th>
+                            <th>Double Rooms</th>
+                            <th>Triple Rooms</th>
+                            <th>Extra Bed</th>
+                            <th>Total Cost</th>
+                        </tr>
+                    </tbody>
+                
+                </table>     
         </section>
+
+        <section class="bookingRow">
+            <div>Overall Adventure Booking</div>
+                <table class="inputBox" id="advdetails">
+                    <tbody>
+                        <tr>
+                            <th>Name</th>
+                            <th>ADVENTURES</th>
+                            <th>LOCAL ADULTS</th>
+                            <th>LOCAL KIDS</th>
+                            <th>FOREIGN ADULTS</th>
+                            <th>FOREIGN KIDS</th>
+                            <th>GUIDE FOR DIVING (Adults)</th>
+                            <th>GUIDE FOR DIVING (Kids)</th>.
+                            <th>Total Cost</th>.
+                        </tr>
+                    </tbody>
+                
+                </table>     
+        </section>
+        </fieldset>
 
 <!--footer-->
 
 <section class="footer">
-    <img src="images/hotel4.jpg" class="footer-img">
+
     <h4>About us</h4>
     <p>In the heart of Colombo, nestled between Galle Face Green and the city’s busiest hub, 
         <br>the World Trade Centre, The Kingsbury.</p>
