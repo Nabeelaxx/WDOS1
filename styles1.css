@@ -134,7 +134,7 @@
     display: block;
 } */
 
-*{
+/* *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -173,7 +173,7 @@
     padding: 0 30px 30px;
     color: #333;
     transition: transform 0.4s, top 0.4s;
-}
+} */
 
 /* .openpopup{
     visibility: visible;
@@ -181,7 +181,7 @@
     transform: translate(-50%, -50%) scale(1);
 } */
 
-.popup img{
+/* .popup img{
     width: 100px;
     margin-top: -50px;
     border-radius: 50%;
@@ -206,4 +206,272 @@
     border-radius: 4px;
     cursor: pointer;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+} */
+
+
+@media (max-width: 1280px){
+
+    .overallTable thead{
+        display: none;
+    }
+    
+    .overallTable, .overallTable tbody, .overallTable tr, .overallTable td{
+        display: block;
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .overallTable td::before{
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        text-align: left;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    .overallTable td{
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border: 1px solid var(--clr-blue950);
+    }
+
+    .overallTable tbody tr{
+        margin-bottom: 1.5rem;
+    }
+}
+
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+
+.table-customer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-customer table{
+    width: 95%;
+    font-size: 8.5px;
+    margin: 0;
+}
+
+.table-customer thead tr td{
+    background-color: #D4AF37;
+    text-align: center;
+    font-weight: 500;
+    color: #063d45;
+}
+
+.table-data{
+    color: #000;
+}
+
+.table-customer div{
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    color: var(--color);
+    font-weight: 600;
+    margin-top: 100px;
+    margin-bottom: 20px;
+} 
+
+.table-customer thead tr td{
+    background-color: #D4AF37;
+    color: #063d45;
+    padding: 10px;
+    font-size: 8px;
+    border: 1px solid #063d45;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.table-customer tbody tr td{
+    background-color: #063d45;
+    color: #D4AF37;
+    padding: 10px;
+    border: 1px solid #063d45;
+    text-transform: uppercase;
+}
+
+
+<section class="table-customer">
+            <div>Customer Details</div>
+                <table class="table overallTable">
+                    <thead id="booklist">
+                        <tr>
+                            <td>Name</td>
+                            <td>E-Mail</td>
+                            <td>Phone Number</td>
+                            <td>Country</td>
+                        </tr>
+                    </thead>
+                    <tbody id="customerbooktable">
+                    </tbody>
+                </table>     
+        </section>
+
+        <section class="table-customer">
+            <div>Reservation</div>
+                <table class="table overallTable">
+                    <thead id="booklist">
+                        <tr>
+                            <td>Name</td>
+                            <td>Check-In</td>
+                            <td>Check-Out</td>
+                            <td>Adults</td>
+                            <td>Children</td>
+                            <td>Above 5 years</td>
+                            <td>Single Room</td>
+                            <td>Double Rooms</td>
+                            <td>Triple Rooms</td>
+                            <td>WI-FI</td>
+                            <td>Pool View</td>
+                            <td>Garden View</td>
+                            <td>Extra Bed</td>
+                            <td>Promo Code</td>
+                            <td>Total Cost</td>
+                        </tr>
+                    </thead>
+                    <tbody id="booktable">
+                    </tbody>
+                </table>     
+        </section>
+
+        <section class="table-customer">
+            <div>Adventure Booking</div>
+                <table class="table overallTable">
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>ADVENTURES</td>
+                            <td>LOCAL ADULTS</td>
+                            <td>LOCAL KIDS</td>
+                            <td>FOREIGN ADULTS</td>
+                            <td>FOREIGN KIDS</td>
+                            <td>GUIDE FOR DIVING (Adults)</td>
+                            <td>GUIDE FOR DIVING (Kids)</td>
+                            <td>Total Cost</td>
+                        </tr>
+                    </thead>
+                    <tbody id="advbooktable">
+                    </tbody>
+                
+                </table>     
+        </section>
+
+
+
+
+//Booking Table
+function addbook(){
+    const name = ${fnameInput.value} ${lnameInput.value};
+    const checkInDate = checkinInput.value;
+    const checkOutDate = checkoutInput.value;
+    const AdultsInput = noAdultsInput.value || 0;
+    const ChildrenInput = noChildrenInput.value || 0;
+    const KidsInput = kidsMealInput.value || 0;
+    const singleinput = singleInput.value || 0;
+    const doubleinput = doubleInput.value || 0;
+    const triple = tripleInput.value || 0;
+    const wifi = wifiCheck.checked ? 'Yes' : 'No';
+    const pool = poolCheck.checked ? 'Yes' : 'No';
+    const garden = gardenCheck.checked ? 'Yes' : 'No';
+    const extrabed = extrabedCheck.checked ? 'Yes' : 'No';
+    const promocode = promocodeInput.value ? 'Yes' : 'No';
+    const totalcost = bookingdetails();
+
+    const details = {
+        name: name,
+        checkInDate: checkInDate,
+        checkOutDate: checkOutDate,
+        adults: AdultsInput,
+        children: ChildrenInput,
+        kids: KidsInput,
+        single: singleinput,
+        double: doubleinput,
+        triple: triple,
+        wifi: wifi,
+        pool: pool,
+        garden: garden,
+        extraBed: extrabed,
+        promocode: promocode,
+        totalCost: totalcost,
+    };
+
+    const labels = {
+        name: 'Name',
+        checkInDate: 'Check-in Date',
+        checkOutDate: 'Check-Out Date',
+        adults: 'No. of Adults',
+        children: 'No. of Children',
+        kids: 'Above 5 Years',
+        single: 'Single Rooms',
+        double: 'Double Rooms',
+        triple: 'Triple Rooms',
+        wifi: 'WiFi',
+        pool: 'Pool View',
+        garden: 'Garden View',
+        extraBed: 'Extra Bed',
+        promocode: 'Promo Code',
+        totalCost: 'Total Cost',
+    };
+
+    const newRow = RoomTable.insertRow(-1);
+    for (const detail in details) {
+        const cell = newRow.insertCell();
+        cell.textContent = details[detail];
+        cell.setAttribute('data-label', labels[detail]);
+    };
+    
+} 
+
+//Adventure Booking Table
+function advaddbook(){
+    
+    const name = ${fnameInput.value} ${lnameInput.value};
+    const dropdown =  AdvDropDown.value;
+    const localadults = localAdultsInput.value || 0;
+    const localkids = localKidsInput.value || 0;
+    const foreignadults = foreignAdultsInput.value || 0;
+    const foreignkids = foreignKidsInput.value || 0;
+    const DiveAdult = diveAdultscheck.checked ? 'Yes' : 'No';
+    const DiveKids = diveKidscheck.checked ? 'Yes' : 'No';
+    const totalcost = adventuredetails();
+    
+    const details = {
+        name: name,
+        dropdown: dropdown,
+        localadults: localadults,
+        localkids: localkids,
+        foreignadults: foreignadults,
+        foreignkids: foreignkids,
+        DiveAdult: DiveAdult,
+        DiveKids: DiveKids,
+        totalcost: totalcost,
+    };
+
+    const labels = {
+        name: 'Name',
+        dropdown: 'Adventures',
+        localadults: 'Local Adults',
+        localkids: 'Local Kids',
+        foreignadults: 'Foreign Adults',
+        foreignkids: 'Foreign Kids',
+        DiveAdult: 'Guide for Diving (Adults)',
+        DiveKids: 'Guide for Diving (Kids)',
+        totalcost: 'Total Cost',
+    };
+
+    const newRow = AdvBookTable.insertRow(-1);
+    for (const detail in details) {
+        const cell = newRow.insertCell();
+        cell.textContent = details[detail];
+        cell.setAttribute('data-label', labels[detail]);
+    };
+
 }

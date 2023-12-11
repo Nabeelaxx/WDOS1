@@ -1349,12 +1349,107 @@ fieldset {
         margin: 20px 0;
     }
     
+    /* .table thead{
+        /* display: none; */
+    /* }
     
-    .bookingTable {
-        margin-bottom: 20px;
+    .table, .table tbody, .table tr, .table td{
+        display: block;
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .table td::before{
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        text-align: left;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    .table td{
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border: 1px solid var(--clr-blue950);
+    }
+
+    .table tbody tr{
+        margin-bottom: 1.5rem;
+    }
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* .bookingTable {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     
+    .bookingTable table{
+        width: 95%;
+        font-size: 8.5px;
+        margin: 0;
+    }
+    .bookingTable thead tr td{
+        background-color: #D4AF37;
+        text-align: center;
+        font-weight: 500;
+        color: #063d45;
+    }
+
+    .table-customer div{
+        display: flex;
+        justify-content: center;
+        text-transform: uppercase;
+        color: var(--color);
+        font-weight: 600;
+        margin-top: 100px;
+        margin-bottom: 20px;
+    } 
     
+    .bookingTable thead tr td{
+        background-color: #D4AF37;
+        color: #063d45;
+        padding: 10px;
+        font-size: 8px;
+        border: 1px solid #063d45;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+    
+    .bookingTable tbody tr td{
+        background-color: #063d45;
+        color: #D4AF37;
+        padding: 10px;
+        border: 1px solid #063d45;
+        text-transform: uppercase;
+    } */
+
+
+
+
+
+
+
+
     .bookingTable span {
         font-weight: bold;
         margin-bottom: 5px;
@@ -1410,6 +1505,10 @@ fieldset {
     .table tbody tr:hover {
         background-color: #f0f0f0;
     }
+
+
+
+
     .hero-btn{
         width: 200px;
         padding: 8px 6px;

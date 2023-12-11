@@ -47,6 +47,7 @@ const advFavBtn = document.getElementById('advfavbtn');
 // Output
 const bookOutput = document.getElementById('bookoutput');
 const advOutput = document.getElementById('advoutput');
+const totalOutput = document.getElementById('totalOutput');
 const popup = document.getElementById("popupScreen");
 const advPopup = document.getElementById('popupScreen2');
 const loyaltyBtn = document.getElementById('checkLoyalty');
@@ -163,6 +164,7 @@ confirmNowBtn.addEventListener('click', () => {
     resetForm();
     checkLoyaltyPoints();
     closePopup();
+    calculateTotalPrices();
 });
 
 bookAdvBtn.addEventListener('click', () =>{
@@ -175,6 +177,7 @@ confirmAdvBtn.addEventListener('click', () => {
     updateAdventureDetails();
     resetForm();
     closeAdvPopup();
+    calculateTotalPrices();
 });
 
 loyaltyBtn.addEventListener('click', () =>{
@@ -182,8 +185,16 @@ loyaltyBtn.addEventListener('click', () =>{
 });
 
 
-roomFavBtn.addEventListener('click', saveRoomFav);
-advFavBtn.addEventListener('click', saveAdvFav);
+roomFavBtn.addEventListener('click', () => {
+    if (validateForm()){
+        roomFavBtn();
+    }
+});
+advFavBtn.addEventListener('click', () =>{
+    if(validateAdvForm()){
+        advFavBtn();
+    }
+});
 
 function openPopup(){
     popup.style.display = 'flex';
@@ -228,7 +239,7 @@ function calculateRoomPrice() {
     const doubleRooms = parseInt(doubleInput.value) || 0;
     const tripleRooms = parseInt(tripleInput.value) || 0;
     const mealsOver5 = parseInt(mealsInput.value) || 0;
-d
+
     // Get checkbox values
     const hasExtraBed = extraBedCheckbox.checked;
 
@@ -311,6 +322,8 @@ function resetForm (){
      // Output
      bookOutput.innerText = 'LKR 0.00';
      advOutput.innerText = 'LKR 0.00';
+     totalOutput.innerText = 'LKR 0.00';
+
 }
 
 function calculateAdventurePrice() {
@@ -320,24 +333,24 @@ function calculateAdventurePrice() {
     const foreignChildren = parseInt(foreignChildrenInput.value) || 0;
     
 
-    let totalPrice = 0;
+    let totalAdvPrice = 0;
 
  
-        totalPrice += localAdults * 5000;
-        totalPrice += localChildren * 2000;
-        totalPrice += foreignAdults * 10000;
-        totalPrice += foreignChildren * 5000;
+        totalAdvPrice += localAdults * 5000;
+        totalAdvPrice += localChildren * 2000;
+        totalAdvPrice += foreignAdults * 10000;
+        totalAdvPrice += foreignChildren * 5000;
 
         if (adultGuideCheckbox.checked) {
-            totalPrice += localAdults * 1000;
+            totalAdvPrice += localAdults * 1000;0
         }
         if (kidGuideCheckbox.checked) {
-            totalPrice += localChildren * 500;
+            totalAdvPrice += localChildren * 500;
         }
 
-    advOutput.innerText = `LKR ${totalPrice}.00`;
+    advOutput.innerHtml = `<u>LKR</u> ${totalAdvPrice}.00`;
 
-    return totalPrice;
+    return totalAdvPrice;
 }
 
 // Function to update the table with adventure booking details
@@ -352,27 +365,74 @@ function updateAdventureDetails() {
     const kidGuide = kidGuideCheckbox.checked ? 'Yes' : 'No';
     const totalCost = calculateAdventurePrice();
 
-    const adventureTable = document.getElementById('advdetails');
+    const adventureTable = document.getElementById('advlist');
+    
+    const details = {
+        name: name,
+        dropdown: adventureType,
+        localadults: localAdults,
+        localkids: localChildren,
+        foreignadults: foreignAdults,
+        foreignkids: foreignChildren,
+        DiveAdult: divingGuide,
+        DiveKids: kidGuide,
+        totalcost: totalCost,
+    };
 
-    const newRow = adventureTable.insertRow(-1); // Insert a row at the end of the table
+    const labels = {
+        name: 'Name',
+        dropdown: 'Adventures',
+        localadults: 'Local Adults',
+        localkids: 'Local Kids',
+        foreignadults: 'Foreign Adults',
+        foreignkids: 'Foreign Kids',
+        DiveAdult: 'Guide for Diving (Adults)',
+        DiveKids: 'Guide for Diving (Kids)',
+        totalcost: 'Total Cost',
+    };
 
-    const cells = [
-        name,
-        adventureType,
-        localAdults,
-        localChildren,
-        foreignAdults,
-        foreignChildren,
-        divingGuide,
-        kidGuide,
-        `LKR ${totalCost}.00`
-    ];
+    const newRow = adventureTable.insertRow(-1);
+    for (const detail in details) {
+        const cell = newRow.insertCell();
+        cell.textContent = details[detail];
+        cell.setAttribute('data-label', labels[detail]);
+    };
+}
 
-    // Insert cells to the new row
-    cells.forEach((cellData, index) => {
-        const cell = newRow.insertCell(index);
-        cell.textContent = cellData;
+// Function to calculate the total prices from both tables
+function calculateTotalPrices() {
+    // Get all rows from bookTable and advTable
+    const overallRows = document.querySelectorAll('#bookdetails tbody tr');
+    const advOverallRows = document.querySelectorAll('#advdetails tbody tr');
+
+    let totalRoomPrice = 0;
+    let totalAdvPrice = 0;
+
+    // Calculate total price from overallTable
+    overallRows.forEach(row => {
+        const totalCostCell = row.querySelector('[data-label="Total Cost"]');
+        const totalPriceText = totalCostCell.textContent.trim().replace('LKR', '').trim();
+        const totalPrice = parseFloat(totalPriceText.replace(',', '')); // Remove commas and convert to float
+        if (!isNaN(totalPrice)) {
+            totalRoomPrice += totalPrice;
+        }
     });
+
+    // Calculate total price from advOverallTable
+    advOverallRows.forEach(row => {
+        const totalCostCell = row.querySelector('[data-label="Total Cost"]');
+        const totalPriceText = totalCostCell.textContent.trim().replace('LKR', '').trim();
+        const totalPrice = parseFloat(totalPriceText.replace(',', '')); // Remove commas and convert to float
+        if (!isNaN(totalPrice)) {
+            totalAdvPrice += totalPrice;
+        }
+    });
+
+    // Calculate total of both prices
+    const totalBothPrices = totalRoomPrice + totalAdvPrice;
+    totalOutput.textContent = `LKR ${totalBothPrices}.00`;
+     
+    return totalBothPrices;
 }
 
 function checkLoyaltyPoints() {
@@ -380,9 +440,9 @@ function checkLoyaltyPoints() {
     const lastRow = table.rows[table.rows.length - 1]; // Get the last row from the table
 
     // Extract the values from the last row
-    const singleRooms = parseInt(lastRow.cells[5].textContent) || 0;
-    const doubleRooms = parseInt(lastRow.cells[6].textContent) || 0;
-    const tripleRooms = parseInt(lastRow.cells[7].textContent) || 0;
+    const singleRooms = parseInt(lastRow.cells[6].textContent) || 0;
+    const doubleRooms = parseInt(lastRow.cells[7].textContent) || 0;
+    const tripleRooms = parseInt(lastRow.cells[8].textContent) || 0;
 
     const totalRooms = singleRooms + doubleRooms + tripleRooms;
 
@@ -406,6 +466,7 @@ function displayLoyaltyPoints() {
         const loyaltyOutput = document.getElementById('loyalty');
         loyaltyOutput.textContent = `Loyalty Points Earned: ${storedLoyaltyPoints}`;
     }
+    alert("Congratulations on earning Loyalty Points!");
 }
 
 
@@ -568,6 +629,7 @@ function saveRoomFav(){
         wifi: wifiCheckbox.checked ? 'Yes' : 'No',
         extraBed: extraBedCheckbox.checked ? 'Yes' : 'No',
         poolView: poolViewCheckbox.checked ? 'Yes' : 'No',
+        gardenView: gardenViewCheckbox.checked ? 'Yes' : 'No',
         promoCode: promoInput.value,
     }
     alert("Your choices for rooms have been favourited!");

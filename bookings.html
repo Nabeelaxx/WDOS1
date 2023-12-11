@@ -189,8 +189,8 @@
     <div id="popupScreen" >
         <div class="popup" id="popup">
             <img src="images/tick3.png">
-            <h2>Thank You</h2>
-            <p> You have successfully placed your booking!</p>
+            <h2>Thank You!</h2>
+            <p> You have successfully placed your booking.</p>
             <button id="confirmRoom" type="button" onclick="closePopup()">OK</button>
         </div>
     </div>
@@ -219,7 +219,7 @@
         <section class="bookingTable">
             <div>Overall Booking</div>
                 <table class="table" id="bookdetails">
-                    <tbody id="booklist">
+                    <thead>
                         <tr>
                             <th>Name</th>
                             <th>Check-In</th>
@@ -232,6 +232,9 @@
                             <th>Extra Bed</th>
                             <th>Total Cost</th>
                         </tr>
+                    </thead>
+                    <tbody id="booklist">
+
                     </tbody>
                 
                 </table>     
@@ -240,7 +243,7 @@
         <section class="bookingTable">
             <div>Overall Adventure Booking</div>
                 <table class="table" id="advdetails">
-                    <tbody id="booklist">
+                    <thead>
                         <tr>
                             <th>Name</th>
                             <th>Adventures</th>
@@ -252,9 +255,16 @@
                             <th>Guide (Kids)</th>
                             <th>Total Cost</th>
                         </tr>
+                    </thead>
+                    <tbody id="advlist">
+
                     </tbody>
                 
                 </table>     
+        </section>
+        <section class="bookingTable">
+            <span>Overall Total Cost</span><br>
+            <p id="totalOutput"><u>LKR</u> 0.00</p>
         </section>
         </fieldset>
 
