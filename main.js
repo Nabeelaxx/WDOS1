@@ -32,19 +32,32 @@ const divingOption = document.getElementById('diving');
 const natureOption = document.getElementById('nature');
 const bunjeeOption = document.getElementById('bunjee');
 const zipliningOption = document.getElementById('ziplining');
+const paraglidingOption = document.getElementById('paragliding');
 const adultGuideCheckbox = document.getElementById('adultguide');
 const kidGuideCheckbox = document.getElementById('kidguide');
 
 // Buttons
 const bookNowBtn = document.getElementById('bookbtn');
 const bookAdvBtn = document.getElementById('advbtn');
+const confirmNowBtn = document.getElementById('confirmRoom');
+const confirmAdvBtn = document.getElementById('confirmAdv');
+const roomFavBtn = document.getElementById('roomfavbtn');
+const advFavBtn = document.getElementById('advfavbtn');
 
 // Output
 const bookOutput = document.getElementById('bookoutput');
 const advOutput = document.getElementById('advoutput');
-
+const popup = document.getElementById("popupScreen");
+const advPopup = document.getElementById('popupScreen2');
 const loyaltyBtn = document.getElementById('checkLoyalty');
+const confirmAdvMsg = document.getElementById('confirmMsg');
+const bookTable = document.getElementById('bookdetails');
+const advTable = document.getElementById('advdetails');
 // Adding Event Listeners 
+window.addEventListener('load', () => {
+    localStorage.setItem('loyaltyPoints', 0);
+});
+
 // Personal Details
 fnameInput.addEventListener('input', () => {
     calculateRoomPrice();
@@ -141,21 +154,55 @@ kidGuideCheckbox.addEventListener('change', () => {
 
 bookNowBtn.addEventListener('click', () => {
     if (validateForm()) {
-        updateBookingDetails();
-        resetForm();
+        openPopup();
     }
+});
+
+confirmNowBtn.addEventListener('click', () => {
+    updateBookingDetails();
+    resetForm();
+    checkLoyaltyPoints();
+    closePopup();
 });
 
 bookAdvBtn.addEventListener('click', () =>{
-    if (validateAdvForm()){
-        updateAdventureDetails();
-        resetForm();
+    if(validateAdvForm()){
+        openAdvPopup();
     }
 });
 
-loyaltyBtn.addEventListener('click', () =>{
-    checkLoyaltyPoints();
+confirmAdvBtn.addEventListener('click', () => {
+    updateAdventureDetails();
+    resetForm();
+    closeAdvPopup();
 });
+
+loyaltyBtn.addEventListener('click', () =>{
+    displayLoyaltyPoints();
+});
+
+
+roomFavBtn.addEventListener('click', saveRoomFav);
+advFavBtn.addEventListener('click', saveAdvFav);
+
+function openPopup(){
+    popup.style.display = 'flex';
+}
+
+function closePopup(){
+    popup.style.display = 'none';
+    bookTable.scrollIntoView({ behavior : 'smooth', block : 'center'});
+}
+
+function openAdvPopup(){
+    advPopup.style.display = 'flex';
+    confirmAdvMsg.textContent = `You have successfully placed a booking for ${advTypeSelect.value}`;
+}
+
+function closeAdvPopup(){
+    advPopup.style.display = 'none';
+    advTable.scrollIntoView({ behavior : 'smooth', block : 'center'});
+}
 
 // Function to calculate stay duration in days
 function calculateStayDuration() {
@@ -181,7 +228,7 @@ function calculateRoomPrice() {
     const doubleRooms = parseInt(doubleInput.value) || 0;
     const tripleRooms = parseInt(tripleInput.value) || 0;
     const mealsOver5 = parseInt(mealsInput.value) || 0;
-
+d
     // Get checkbox values
     const hasExtraBed = extraBedCheckbox.checked;
 
@@ -226,11 +273,11 @@ function updateBookingDetails() {
     const name = `${fnameInput.value} ${lnameInput.value}`;
     const checkInDate = checkInInput.value;
     const checkOutDate = checkOutInput.value;
-    const adults = adultsInput.value;
-    const children = childrenInput.value;
-    const singleRooms = singleInput.value;
-    const doubleRooms = doubleInput.value;
-    const tripleRooms = tripleInput.value;
+    const adults = adultsInput.value || 0;
+    const children = childrenInput.value || 0;
+    const singleRooms = singleInput.value || 0;
+    const doubleRooms = doubleInput.value || 0;
+    const tripleRooms = tripleInput.value || 0;
     const extraBed = extraBedCheckbox.checked ? 'Yes' : 'No';
     const totalCost = calculateRoomPrice();
 
@@ -256,8 +303,6 @@ function updateBookingDetails() {
         const cell = newRow.insertCell(index);
         cell.textContent = cellData;
     });
-    
-    alert(`You have successfully placed your booking!`);
 }
 
 function resetForm (){
@@ -298,10 +343,10 @@ function calculateAdventurePrice() {
 // Function to update the table with adventure booking details
 function updateAdventureDetails() {
     const name = `${fnameInput.value} ${lnameInput.value}`;
-    const localAdults = localAdultsInput.value;
-    const localChildren = localChildrenInput.value;
-    const foreignAdults = foreignAdultsInput.value;
-    const foreignChildren = foreignChildrenInput.value;
+    const localAdults = localAdultsInput.value || 0;
+    const localChildren = localChildrenInput.value || 0;
+    const foreignAdults = foreignAdultsInput.value || 0;
+    const foreignChildren = foreignChildrenInput.value || 0;
     const adventureType = advTypeSelect.value;
     const divingGuide = adultGuideCheckbox.checked ? 'Yes' : 'No';
     const kidGuide = kidGuideCheckbox.checked ? 'Yes' : 'No';
@@ -328,28 +373,42 @@ function updateAdventureDetails() {
         const cell = newRow.insertCell(index);
         cell.textContent = cellData;
     });
-
-    alert(`You have successfully booked ${adventureType}`);
 }
 
 function checkLoyaltyPoints() {
-    const singleRooms = parseInt(singleInput.value) || 0;
-    const doubleRooms = parseInt(doubleInput.value) || 0;
-    const tripleRooms = parseInt(tripleInput.value) || 0;
+    const table = document.getElementById('booklist');
+    const lastRow = table.rows[table.rows.length - 1]; // Get the last row from the table
+
+    // Extract the values from the last row
+    const singleRooms = parseInt(lastRow.cells[5].textContent) || 0;
+    const doubleRooms = parseInt(lastRow.cells[6].textContent) || 0;
+    const tripleRooms = parseInt(lastRow.cells[7].textContent) || 0;
 
     const totalRooms = singleRooms + doubleRooms + tripleRooms;
 
+    const existingLoyaltyPoints = parseInt(localStorage.getItem('loyaltyPoints')) || 0;
     let loyaltyPoints = 0;
+
 
     if (totalRooms > 3) {
         loyaltyPoints = totalRooms * 20;
+        loyaltyPoints += existingLoyaltyPoints;
+
         // Store loyalty points in local storage
         localStorage.setItem('loyaltyPoints', loyaltyPoints);
     }
-
-    const loyaltyOutput = document.getElementById('loyalty');
-    loyaltyOutput.textContent = `Loyalty Points Earned: ${loyaltyPoints}`;
 }
+
+function displayLoyaltyPoints() {
+    const storedLoyaltyPoints = localStorage.getItem('loyaltyPoints') || 0;
+
+    if (storedLoyaltyPoints) {
+        const loyaltyOutput = document.getElementById('loyalty');
+        loyaltyOutput.textContent = `Loyalty Points Earned: ${storedLoyaltyPoints}`;
+    }
+}
+
+
 // Function to validate the form fields
 function validateForm() {
     // Personal Details
@@ -379,41 +438,49 @@ function validateForm() {
 
     if (lname === '') {
         alert('Please enter your Last Name.');
+        lnameInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return false;
     }
 
     if (email === '' || !emailPattern.test(email)) {
         alert('Please enter a valid Email Address.');
+        emailInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return false;
     }
 
     if (phone === '') {
         alert('Please enter your Phone Number.');
+        phoneInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return false;
     }
 
     if (country === '') {
         alert('Please enter your Country.');
+        countryInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return false;
     }
 
     if (checkIn === '') {
         alert('Please select the Check-In Date.');
+        checkInInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return false;
     }
 
     if (checkOut === '') {
         alert('Please select the Check-Out Date.');
+        checkOutInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return false;
     }
 
     if (!adults > 0){
         alert('Please enter at least one adult.');
+        adultsInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return false;
     }
 
     if (!(singleRooms > 0 || doubleRooms > 0 || tripleRooms > 0)) {
         alert('Please select atleast one room.');
+        singleInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return false;
     }
 
@@ -443,43 +510,80 @@ function validateAdvForm() {
     // Validation logic
     if (fname === '') {
         alert('Please enter your First Name.');
+        fnameInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return false;
     }
 
     if (lname === '') {
         alert('Please enter your Last Name.');
+        lnameInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return false;
     }
 
     if (email === '' || !emailPattern.test(email)) {
         alert('Please enter a valid Email Address.');
+        emailInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return false;
     }
 
     if (phone === '') {
         alert('Please enter your Phone Number.');
+        phoneInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return false;
     }
 
     if (country === '') {
         alert('Please enter your Country.');
+        countryInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return false;
     }
 
     // Validation logic for adventure booking details
     if (advType === 'none') {
         alert('Please select an Adventure Type.');
+        advTypeSelect.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return false;
     }
 
     if (!(localAdults > 0 || localChildren > 0 || foreignAdults > 0 || foreignChildren > 0 ))  {
         alert(`Please enter atleast one person for ${advType}`);
+        localAdultsInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return false;
     }
-
 
     // If all validations pass, return true
     return true;
 }
 
+function saveRoomFav(){
+    const roomBooking = {
+        checkInDate: checkInInput.value,
+        checkOutDate: checkOutInput.value,
+        singleRooms: singleInput.value || 0,
+        doubleRooms: doubleInput.value || 0,
+        tripleRooms: tripleInput.value || 0,
+        adults: adultsInput.value || 0,
+        children: childrenInput.value || 0,
+        mealsOver5: mealsInput.value || 0,
+        wifi: wifiCheckbox.checked ? 'Yes' : 'No',
+        extraBed: extraBedCheckbox.checked ? 'Yes' : 'No',
+        poolView: poolViewCheckbox.checked ? 'Yes' : 'No',
+        promoCode: promoInput.value,
+    }
+    alert("Your choices for rooms have been favourited!");
+    localStorage.setItem('favouriteRoomBooking', JSON.stringify(roomBooking));
+};
 
+function saveAdvFav(){
+    const advBooking = {
+        localAdults: localAdultsInput.value || 0,
+        localChildren: localChildrenInput.value || 0,
+        foreignAdults: foreignAdultsInput.value || 0,
+        foreignChildren: foreignChildrenInput.value || 0,
+        adultGuide: adultGuideCheckbox.checked ? 'Yes' : 'No',
+        kidGuide: kidGuideCheckbox.checked ? 'Yes' : 'No',
+       
+    }
+    alert("Your choices for adventure have been favourited!");
+    localStorage.setItem('favouriteAdvBooking', JSON.stringify(advBooking));
+};

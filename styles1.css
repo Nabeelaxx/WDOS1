@@ -1,4 +1,4 @@
-.bookingRow {
+/* .bookingRow {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -8,8 +8,8 @@
 
 #bookingForm fieldset{
     width: 65%;
-    padding: 20px 15px;
-    /* border: none; */
+    padding: 20px 15px; */
+    /* border: none;
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -44,4 +44,166 @@
     border: 1px solid #471515;
     padding: 15px 10px;
     font-size: 14px;
+}
+
+/* Apply basic styling to the fieldset */
+/* fieldset {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+} */
+
+/* Style the bookingTable section */
+/* .bookingTable {
+    margin-bottom: 20px;
+} */
+
+/* Style spans and paragraphs inside bookingTable */
+/* .bookingTable span {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.bookingTable p {
+    margin: 0;
+} */
+
+/* Style the Overall Booking and Overall Adventure Booking sections */
+/* .bookingTable > div {
+    font-weight: bold;
+    margin-bottom: 10px;
+} */
+
+/* Style the tables */
+/* .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+} */
+
+/* Style table headers */
+/* .table th {
+    background-color: #f4f4f4;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    border: 1px solid #ddd;
+} */
+
+/* Style table cells */
+/* .table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+} */
+
+/* Style alternating rows */
+/* .table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+} */
+
+/* Add some spacing between table cells */
+/* .table th,
+.table td {
+    padding: 12px;
+} */
+
+/* Add a hover effect on table rows */
+/* .table tbody tr:hover {
+    background-color: #f0f0f0;
+} */
+
+
+/* Add this CSS for styling the error message */
+/* .error-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #ff9999;
+    border: 1px solid #ff6666;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+.error-message.show {
+    display: block;
+} */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+.errmsg{
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.errbtn{
+    padding: 10px 60px;
+    background-color: #fff;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 500;
+    border-radius: 30px;
+}
+
+.popup{
+    width: 400px;
+    background: #fff;
+    border-radius: 6px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    transition: transform 0.4s, top 0.4s;
+}
+
+/* .openpopup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+} */
+
+.popup img{
+    width: 100px;
+    margin-top: -50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.popup h2{
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+
+.popup button{
+    width: 100px;
+    margin-top: 50px;
+    padding: 10px 0;
+    background: #35a50b;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 }

@@ -131,8 +131,9 @@
                             <span>Promo Code</span>
                             <input type="text" required id="promo" placeholder="Enter the Promo Code">
                         </div>
-                        <a class="hero-btn" id="bookbtn">Book Now</a>
                         <a class="hero-btn" id="checkLoyalty">Check Loyalty</a>
+                        <a class="hero-btn" id="roomfavbtn">Add To Favourites</a>
+                        <a class="hero-btn" id="bookbtn">Book Now</a>
                     </div>
                 </fieldset>
 
@@ -163,6 +164,7 @@
                                 <option value="Trail with Nature" id="nature">Trail with Nature</option>
                                 <option value="Bungee Jumping" id="bunjee">Bungee Jumping</option>
                                 <option value="Zip Lining" id="ziplining" >Zip Lining</option>
+                                <option value="Paragliding" id="paragliding">Paragliding</option>
                             </select>
                         </div>
                         <div class="inputBox checkBox">
@@ -177,37 +179,33 @@
                             </label>
                         </div>
                         <a class="hero-btn" id="advbtn">Book Adventure</a>
+                        <a class="hero-btn" id="advfavbtn">Add To Favourites</a>
                     </div>
                 </fieldset>
             </form>
         </div>
     </section>
 
-    <!-- <div class="output">
-                    <div class="output_align">
-                        
-                        <div class="guestOutput">
-                            <h1>Guest Details</h1>
-                            <p id="output"></p>
-                        </div>
+    <div id="popupScreen" >
+        <div class="popup" id="popup">
+            <img src="images/tick3.png">
+            <h2>Thank You</h2>
+            <p> You have successfully placed your booking!</p>
+            <button id="confirmRoom" type="button" onclick="closePopup()">OK</button>
+        </div>
+    </div>
 
-                        <div class="bookOutput">
-                            <h1>Booking Information</h1>
-                            <p id="bookingOutput"></p>
-                        </div>
+    <div id="popupScreen2" >
+        <div class="popup" id="popup2">
+            <img src="images/tick3.png">
+            <h2>Thank You</h2>
+            <p id="confirmMsg"> </p>
+            <button id="confirmAdv" type="button" onclick="closePopup()">OK</button>
+        </div>
+    </div>
 
-                        <div class="advOutput">     
-                            <h1>adventure Booking</h1>
-                            <p id="advbookingOutput"></p>
-                        </div>
-                    </div>
-            </div> -->
-
-
-            <!-- Current Ouptut  -->
-            <fieldset>
-                
-            <section class="bookingRow">
+            <fieldset>               
+            <section class="bookingTable">
                 <span>Booking Rate</span><br>
                 <p id="bookoutput"><u>LKR</u> 0.00</p>
                 
@@ -218,9 +216,9 @@
             </section>
         
 
-        <section class="bookingRow">
+        <section class="bookingTable">
             <div>Overall Booking</div>
-                <table class="inputBox" id="bookdetails">
+                <table class="table" id="bookdetails">
                     <tbody id="booklist">
                         <tr>
                             <th>Name</th>
@@ -239,20 +237,20 @@
                 </table>     
         </section>
 
-        <section class="bookingRow">
+        <section class="bookingTable">
             <div>Overall Adventure Booking</div>
-                <table class="inputBox" id="advdetails">
-                    <tbody>
+                <table class="table" id="advdetails">
+                    <tbody id="booklist">
                         <tr>
                             <th>Name</th>
-                            <th>ADVENTURES</th>
-                            <th>LOCAL ADULTS</th>
-                            <th>LOCAL KIDS</th>
-                            <th>FOREIGN ADULTS</th>
-                            <th>FOREIGN KIDS</th>
-                            <th>GUIDE FOR DIVING (Adults)</th>
-                            <th>GUIDE FOR DIVING (Kids)</th>.
-                            <th>Total Cost</th>.
+                            <th>Adventures</th>
+                            <th>Local Adults</th>
+                            <th>Local Kids</th>
+                            <th>Foreign Adults</th>
+                            <th>Foreign Kids</th>
+                            <th>Guide (Adults)</th>
+                            <th>Guide (Kids)</th>
+                            <th>Total Cost</th>
                         </tr>
                     </tbody>
                 
@@ -290,3 +288,5 @@
 
 </body>
 </html>
+<!--overall-x:scroll;
+    display:hidden;
