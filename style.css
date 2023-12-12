@@ -928,7 +928,7 @@ fieldset {
 
 .bookingTable {
     margin-bottom: 20px;
-    
+    width: 100%;
 }
 
 
@@ -1094,7 +1094,7 @@ fieldset {
 }
 
 
-@media (max-device-width: 700px) {
+@media (max-width: 700px) {
     .text-box h1{
         font-size: 70px;
     }
@@ -1110,10 +1110,10 @@ fieldset {
         padding: 30px;
         margin: 10%;
     }
-    .nav-link li{
-        /* padding: 38px; */
+    /* .nav-link li{
+        padding: 38px;
         
-    }
+    } */
     .row{
         flex-direction: column;
     }
@@ -1193,7 +1193,7 @@ fieldset {
         font-size: 12px;
     }
     hr{
-        margin: 5ps auto;
+        margin: 5px auto;
     }
     .single-explore:hover .explore-desc{
         bottom: 25%;  
@@ -1227,7 +1227,7 @@ fieldset {
 
 }
 
-@media (max-device-width: 768px){
+@media (max-width: 768px){
     #bookingForm{
         width: 100%;
     }
