@@ -200,12 +200,12 @@ loyaltyBtn.addEventListener('click', () =>{
 
 roomFavBtn.addEventListener('click', () => {
     if (validateForm()){
-        roomFavBtn();
+        saveRoomFav();
     }
 });
 advFavBtn.addEventListener('click', () =>{
     if(validateAdvForm()){
-        advFavBtn();
+        saveAdvFav();
     }
 });
 
