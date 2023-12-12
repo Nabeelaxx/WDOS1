@@ -54,6 +54,11 @@ const loyaltyBtn = document.getElementById('checkLoyalty');
 const confirmAdvMsg = document.getElementById('confirmMsg');
 const bookTable = document.getElementById('bookdetails');
 const advTable = document.getElementById('advdetails');
+
+const today = new Date().toISOString().split('T')[0];
+
+checkInInput.min = today;
+
 // Adding Event Listeners 
 window.addEventListener('load', () => {
     localStorage.setItem('loyaltyPoints', 0);
@@ -78,16 +83,24 @@ phoneInput.addEventListener('input', () => {
 });
 countryInput.addEventListener('input', () => {
     calculateRoomPrice();
+    calculateStayDuration();
 ;
 });
 
 // Booking Details
-checkInInput.addEventListener('input', () => {
+checkInInput.addEventListener('change', () => {
     calculateRoomPrice();
-;
+    minCheckOutDate();
+
+    if (checkOutInput.value < this.value) {
+        checkOutInput.value = this.value;
+    }
 });
-checkOutInput.addEventListener('input', () => {
+checkOutInput.addEventListener('change', () => {
     calculateRoomPrice();
+    if (this.value < checkInInput.value) {
+        checkOutInput.value = checkInInput.value;
+    } 
 ;
 });
 adultsInput.addEventListener('input', () => {
@@ -229,6 +242,13 @@ function calculateStayDuration() {
     return stayDuration;
 }
 
+function minCheckOutDate(){
+    const chooseDate = new Date(checkInInput.value);
+    chooseDate.setDate(chooseDate.getDate() + 1);
+    const minCheckOutdate = chooseDate.toISOString().split('T')[0];
+    checkOutInput.min = minCheckOutdate;
+}
+
 // Function to calculate total room prices
 function calculateRoomPrice() {
     // Get duration of stay
@@ -294,27 +314,66 @@ function updateBookingDetails() {
 
     const table = document.getElementById('booklist');
 
-    const newRow = table.insertRow(-1); // Insert a row at the end of the table
-
-    const cells = [
-        name,
-        checkInDate,
-        checkOutDate,
-        adults,
-        children,      
-        singleRooms,
-        doubleRooms,
-        tripleRooms,
-        extraBed,
-        `LKR ${totalCost}.00`
-    ];
-
-    // Insert cells to the new row
-    cells.forEach((cellData, index) => {
-        const cell = newRow.insertCell(index);
-        cell.textContent = cellData;
-    });
+    
+    const details = {
+        name: name,
+        checkInDate: checkInDate,
+        checkOutDate: checkOutDate,
+        adults: adults,
+        children: children,
+        single: singleRooms,
+        double: doubleRooms,
+        triple: tripleRooms,
+        extraBed: extraBed,
+        totalCost: totalCost,
+    };
+    
+    const labels = {
+        name: 'Name',
+        checkInDate: 'Check-in Date',
+        checkOutDate: 'Check-Out Date',
+        adults: 'No. of Adults',
+        children: 'No. of Children',
+        kids: 'Above 5 Years',
+        single: 'Single Rooms',
+        double: 'Double Rooms',
+        triple: 'Triple Rooms',
+        wifi: 'WiFi',
+        pool: 'Pool View',
+        garden: 'Garden View',
+        extraBed: 'Extra Bed',
+        promocode: 'Promo Code',
+        totalCost: 'Total Cost',
+    };
+    
+    const newRow = table.insertRow(-1);
+    for (const detail in details) {
+        const cell = newRow.insertCell();
+        cell.textContent = details[detail];
+        cell.setAttribute('data-label', labels[detail]);
+    };
 }
+
+
+// const cells = [
+    //     name,
+    //     checkInDate,
+    //     checkOutDate,
+    //     adults,
+    //     children,      
+    //     singleRooms,
+    //     doubleRooms,
+    //     tripleRooms,
+    //     extraBed,
+    //     `LKR ${totalCost}.00`
+    // ];
+
+    // // Insert cells to the new row
+    // cells.forEach((cellData, index) => {
+    //     const cell = newRow.insertCell(index);
+    //     cell.textContent = cellData;
+    // });
+
 
 function resetForm (){
     form.reset();
@@ -348,7 +407,7 @@ function calculateAdventurePrice() {
             totalAdvPrice += localChildren * 500;
         }
 
-    advOutput.innerHtml = `<u>LKR</u> ${totalAdvPrice}.00`;
+    advOutput.innerText = `LKR ${totalAdvPrice}.00`;
 
     return totalAdvPrice;
 }
@@ -363,7 +422,7 @@ function updateAdventureDetails() {
     const adventureType = advTypeSelect.value;
     const divingGuide = adultGuideCheckbox.checked ? 'Yes' : 'No';
     const kidGuide = kidGuideCheckbox.checked ? 'Yes' : 'No';
-    const totalCost = calculateAdventurePrice();
+    const totalCost = advOutput.innerText;
 
     const adventureTable = document.getElementById('advlist');
     
