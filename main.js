@@ -310,7 +310,7 @@ function updateBookingDetails() {
     const doubleRooms = doubleInput.value || 0;
     const tripleRooms = tripleInput.value || 0;
     const extraBed = extraBedCheckbox.checked ? 'Yes' : 'No';
-    const totalCost = calculateRoomPrice();
+    const totalCost = bookOutput.innerText;
 
     const table = document.getElementById('booklist');
 
@@ -353,27 +353,6 @@ function updateBookingDetails() {
         cell.setAttribute('data-label', labels[detail]);
     };
 }
-
-
-// const cells = [
-    //     name,
-    //     checkInDate,
-    //     checkOutDate,
-    //     adults,
-    //     children,      
-    //     singleRooms,
-    //     doubleRooms,
-    //     tripleRooms,
-    //     extraBed,
-    //     `LKR ${totalCost}.00`
-    // ];
-
-    // // Insert cells to the new row
-    // cells.forEach((cellData, index) => {
-    //     const cell = newRow.insertCell(index);
-    //     cell.textContent = cellData;
-    // });
-
 
 function resetForm (){
     form.reset();
@@ -461,14 +440,14 @@ function updateAdventureDetails() {
 // Function to calculate the total prices from both tables
 function calculateTotalPrices() {
     // Get all rows from bookTable and advTable
-    const overallRows = document.querySelectorAll('#bookdetails tbody tr');
-    const advOverallRows = document.querySelectorAll('#advdetails tbody tr');
+    const allRows = document.querySelectorAll('#bookdetails tbody tr');
+    const advallRows = document.querySelectorAll('#advdetails tbody tr');
 
     let totalRoomPrice = 0;
     let totalAdvPrice = 0;
 
     // Calculate total price from overallTable
-    overallRows.forEach(row => {
+    allRows.forEach(row => {
         const totalCostCell = row.querySelector('[data-label="Total Cost"]');
         const totalPriceText = totalCostCell.textContent.trim().replace('LKR', '').trim();
         const totalPrice = parseFloat(totalPriceText.replace(',', '')); // Remove commas and convert to float
@@ -478,7 +457,7 @@ function calculateTotalPrices() {
     });
 
     // Calculate total price from advOverallTable
-    advOverallRows.forEach(row => {
+    advallRows.forEach(row => {
         const totalCostCell = row.querySelector('[data-label="Total Cost"]');
         const totalPriceText = totalCostCell.textContent.trim().replace('LKR', '').trim();
         const totalPrice = parseFloat(totalPriceText.replace(',', '')); // Remove commas and convert to float
