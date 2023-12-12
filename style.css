@@ -760,7 +760,7 @@ iframe{
 .sub-header-4{
     width: 100%;
     height: 80vh;
-    background-image: linear-gradient(rgba(176, 151, 151, 0.7), rgba(176, 151, 151, 0.7)), url(images/hotel32.jpg);
+    background-image: linear-gradient(rgba(176, 151, 151, 0.7), rgba(176, 151, 151, 0.7)), url(images/hotel32.webp);
     background-size: cover;
     background-position: center;
     position: relative;
