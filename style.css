@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
+
 *{
     margin: 0;
     padding: 0;
@@ -8,9 +9,10 @@
 
 
 .header{
-    min-height: 85vh;
+    min-height: 100vh;
     width: 100%;
-    background-image: url(images/home6.jpeg);
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+              url(images/homepage22.jpeg);
     background-position: center;
     background-size: cover;
     position: relative;
@@ -18,13 +20,21 @@
 }
 nav{
     display: flex;
-    padding: 2% 6%;
+    padding: 2.6rem 3.5rem;
     justify-content: space-between;
     align-items: center;  
+    
 }
 nav img{
-    width: 150px;
+    width: 80px;
+    transition: 0.5s;
 }
+
+nav img:hover{
+    width: 90px;
+    transition: 0.5s;
+}
+
 .nav-link{
     text-align: right;
     flex: 1;
@@ -38,7 +48,7 @@ nav img{
 .nav-link ul li a{
     text-decoration: none;
     font-size: 15px;
-    color: #320707;
+    color: #ffffff;
     text-transform: uppercase;
     font-weight: 600;
 }
@@ -56,7 +66,7 @@ nav img{
 }
 .text-box{
     width: 90%;
-    color: #320707;
+    color: #ffffff;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -66,24 +76,28 @@ nav img{
 .text-box h1{
     font-size: 70px;
     margin-top: 80px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
 }
 .text-box p{
     margin: 20px auto;
     font-weight: bold;
     line-height: 22px;
     font-size: 20px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
 }
-.hero-btn{
+
+.text-box .hero-btn{
     width: 200px;
     padding: 8px 6px;
     text-align: center;
     margin: 20px 10px;
-    border-radius: 25px;
+    border-radius: 50px;
     font-weight: bold;
     border: 1px solid #8d2511d1;
     background: #5a1717d4;
+    text-decoration: none;
     color: #fff;
     cursor: pointer;
     position: relative;
@@ -97,6 +111,7 @@ nav img{
     background: #320707;
     transition: 1s;
 }
+
 ul li ul.dropdown li{
     display: block;
 }
@@ -132,6 +147,7 @@ ul li:hover ul.dropdown{
 .About h1{
     font-size: 36px;
     font-weight: 600;
+    text-transform: uppercase;
     color: #320707;
     
 }
@@ -140,7 +156,7 @@ ul li:hover ul.dropdown{
     font-size: 16px;
     font-weight: 600;
     line-height: 22px;
-    padding: 10px;
+    padding: 30px;
 
 }
 .row{
@@ -163,6 +179,7 @@ h3{
     margin: 10px 0;
     font-size: 22px;
     color: #fff;
+    text-transform: uppercase;
 }
 .About-col:hover{
     box-shadow: 0 0 20px 0px rgba(0,0,0,2);
@@ -172,17 +189,19 @@ h3{
     width: 80%;
     text-align: center;
     margin: auto;
-    padding-top: 100px;
+    padding-top: 20px;
 }
 .offers h1{
     font-size: 32px;
     font-weight: 600;
     color: #320707;
+    text-transform: uppercase;
 }
 .offers p{
     font-size: 16px;
     line-height: 22px;
     padding: 10px;
+    color: #4b170bcb;
 }
 .offers-col{
     flex-basis: 32%;
@@ -227,16 +246,18 @@ h3{
     width: 80%;
     margin: auto;
     text-align: center;
-    padding-top: 100px;
+    padding-top: 50px;
 }
 .facilities h1{
     font-size: 28px;
     color: #320707;
+    text-transform: uppercase;
 }
 .facilities p{
     font-size: 16px;
     line-height: 22px;
     padding: 10px;
+    color: #4b170bcb;
 }
 .facilities-col{
     flex-basis: 31%;
@@ -273,11 +294,12 @@ h3{
     margin-bottom: 40px;
     font-weight: 500;
     padding: 0;
+    text-transform: uppercase;
 }
 .footer{
     width: 100%;
     text-align: center;
-    padding: 100px 0 20px;
+    padding: 80px 0 20px;
     background: #956161;
     line-height: 22px;
     position: relative;
@@ -746,14 +768,18 @@ iframe{
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    transition: 1s;
     display: inline-block;
+    text-decoration: none;
     font-weight: 600;
     font-size: 13px;
 }
 .hero-btn:hover{
     border: 1px solid #320707;
-    background: #320707;
+    background: #ffffff;
     transition: 1s;
+    color: #5a1c1c;
+    
 }
 /*--booking pg--*/
 
@@ -1402,34 +1428,6 @@ fieldset {
         padding: 20px;
         margin: 20px 0;
     }
-    
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
 
 
     .hero-btn{
